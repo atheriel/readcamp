@@ -1,10 +1,10 @@
-#' Read the contents of a DataCamp group export into R.
+#' Read the contents of a DataCamp group export into R
 #'
 #' @param path Either the zip file downloaded from the website (must end in
 #'   \code{.zip}), or the unzipped directory containing the exported files.
 #'
 #' @export
-read_datacamp <- function(path) {
+read_group_export <- function(path) {
   # If this is a .zip archive, extract its contents somewhere temporary.
   if (grepl(".zip", path)) {
     tmppath <- paste0(tempdir(), "/", gsub(".zip", "", path))
