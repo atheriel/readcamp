@@ -3,6 +3,10 @@
 #' @param path Either the zip file downloaded from the website (must end in
 #'   \code{.zip}), or the unzipped directory containing the exported files.
 #'
+#' @seealso \code{\link{courses}}, \code{\link{missing_courses}}, and
+#'   \code{\link{users}} for extracting course and user information from the
+#'   object returned by this function.
+#'
 #' @export
 read_group_export <- function(path) {
   # If this is a .zip archive, extract its contents somewhere temporary.
@@ -56,6 +60,12 @@ read_group_export <- function(path) {
     select(-course) %>%
     dplyr::left_join(course_metadata, by = "course_id") %>%
     dplyr::rename(course = course_overview_name)
+
+  # Check if there are any NAs in the course name <--> id mapping.
+  if (anyNA(clean_overview$course_id) || anyNA(clean_courses$course)) {
+    warning(paste("Some courses are missing names or IDs. Use",
+                  "missing_courses() to diagnose which ones."))
+  }
 
   clean_full <- dplyr::bind_rows(clean_overview, clean_courses) %>%
     select(user_id, course, course_id, chapter, free, status, start_date,

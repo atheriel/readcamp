@@ -13,3 +13,8 @@ read_group_export(path)
 \description{
 Read the contents of a DataCamp group export into R
 }
+\seealso{
+\code{\link{courses}}, \code{\link{missing_courses}}, and
+  \code{\link{users}} for extracting course and user information from the
+  object returned by this function.
+}
