@@ -2,12 +2,14 @@ Package: readcamp
 Type: Package
 Title: Read DataCamp Exports into Tidy Data Frames
 Version: 0.0.0.9000
-Authors@R: person("Aaron", "Jacobs",
-                  email = "aaron.jacobs@crescendotechnology.com",
-                  role = c("aut", "cre"))
+Authors@R: c(
+  person("Aaron", "Jacobs", email = "aaron.jacobs@crescendotechnology.com",
+         role = c("aut", "cre")),
+  person("Crescendo Technology Ltd.", role = "cph")
+  )
 Description: Tools for importing and inspecting course information from zip
   files exported from DataCamp's online interface.
-License: file LICENSE
+License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
