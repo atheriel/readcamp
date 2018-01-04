@@ -4,6 +4,16 @@
 format. It is useful for group administrators who wish to understand how their
 students are doing, and prefer to perform this analysis in R.
 
+## Installation
+
+This package is not yet available on CRAN. You can install the development
+version from GitHub with:
+
+```r
+# install.packages("devtools")
+devtools::install_github("atheriel/readcamp")
+```
+
 ## Usage
 
 **readcamp** exposes one main function that reads all course & chapter grades
